@@ -1,0 +1,82 @@
+{
+  "hash": "cec99fb3",
+  "configHash": "6d16da17",
+  "lockfileHash": "117d04f2",
+  "browserHash": "5da7859a",
+  "optimized": {
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "76ac4fdf",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "a85d9b6a",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "04e51e61",
+      "needsInterop": false
+    },
+    "pixi.js": {
+      "src": "../../../../../node_modules/pixi.js/lib/index.mjs",
+      "file": "pixi__js.js",
+      "fileHash": "e3055976",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-CZOKOVYB": {
+      "file": "chunk-CZOKOVYB.js"
+    },
+    "chunk-DVW2LNB4": {
+      "file": "chunk-DVW2LNB4.js"
+    },
+    "browserAll-FDGPGWCI": {
+      "file": "browserAll-FDGPGWCI.js"
+    },
+    "chunk-G6OPCVV3": {
+      "file": "chunk-G6OPCVV3.js"
+    },
+    "webworkerAll-MIUWFBZD": {
+      "file": "webworkerAll-MIUWFBZD.js"
+    },
+    "chunk-K65TMCUG": {
+      "file": "chunk-K65TMCUG.js"
+    },
+    "chunk-6T6FAZVE": {
+      "file": "chunk-6T6FAZVE.js"
+    },
+    "WebGPURenderer-TZEUNSIG": {
+      "file": "WebGPURenderer-TZEUNSIG.js"
+    },
+    "chunk-CG3KGPAF": {
+      "file": "chunk-CG3KGPAF.js"
+    },
+    "chunk-7KQ3QEAI": {
+      "file": "chunk-7KQ3QEAI.js"
+    },
+    "WebGLRenderer-WYQORF55": {
+      "file": "WebGLRenderer-WYQORF55.js"
+    },
+    "chunk-DD5BOKQY": {
+      "file": "chunk-DD5BOKQY.js"
+    },
+    "chunk-OUHFQVIJ": {
+      "file": "chunk-OUHFQVIJ.js"
+    },
+    "chunk-ZAJQ7IJH": {
+      "file": "chunk-ZAJQ7IJH.js"
+    },
+    "chunk-YXJZXE4G": {
+      "file": "chunk-YXJZXE4G.js"
+    },
+    "chunk-ASLTLD6L": {
+      "file": "chunk-ASLTLD6L.js"
+    }
+  }
+}
