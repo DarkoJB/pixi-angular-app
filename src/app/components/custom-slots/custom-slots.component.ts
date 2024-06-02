@@ -78,6 +78,7 @@ export class CustomSlotsComponent implements OnInit {
 
     this.slotTextures = assetPaths.map((path) => Texture.from(path));
     this.assetIds = assetIds;
+
     return assetIds;
     // return assetIds;
   }
@@ -88,10 +89,11 @@ export class CustomSlotsComponent implements OnInit {
     const reelHeight = 160;
     //TODO: Check if we can do anything else other than 3, and what it does
     //i => x-axis, j => y-axis
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 3; i++) {
       const reelContainer = new Container();
       reelContainer.x = i * reelWidth;
       this.pixiApp.stage.addChild(reelContainer);
+      console.log(reelContainer);
 
       const symbols: any[] = [];
       for (let j = 0; j < 3; j++) {
@@ -133,10 +135,10 @@ export class CustomSlotsComponent implements OnInit {
     assetIds: { [key: string]: number },
     reelWidth: number
   ) {
-    const winningReelIndexes = this.checkWinningCombination(reels, assetIds);
-    if (winningReelIndexes.length > 0) {
-      this.showWinningText(winningReelIndexes, reelWidth);
-    }
+    const winningReelIndexes = this.checkWinningCombination(reels);
+    // if (winningReelIndexes.length > 0) {
+    //   this.showWinningText(winningReelIndexes, reelWidth);
+    // }
     for (const reel of reels) {
       for (const symbol of reel.symbols) {
         symbol.texture =
@@ -146,29 +148,29 @@ export class CustomSlotsComponent implements OnInit {
       }
     }
   }
-  checkWinningCombination(
-    reels: any[],
-    assetsWithIds: { [key: string]: number }
-  ): number[] {
-    const winningReels: number[] = [];
+  checkWinningCombination(reels: any[]): number[] {
+    const winningRows: number[] = [];
+    const numRows = reels[0].symbols.length;
 
-    //Check for win. combo. where all symbols in the reel are the same based on their id
-    for (let i = 0; i < reels.length; i++) {
-      const symbols = reels[i];
-      console.log(symbols.symbols[0]._texture);
+    for (let rowIndex = 0; rowIndex < numRows; rowIndex++) {
+      const firstSymbolId = reels[0].symbols[rowIndex].texture.baseTexture._id;
+      let isWinningRow = true;
 
-      const firstSymbolId =
-        assetsWithIds[symbols.symbols[0]._texture.baseTexture.imageUrl];
-      if (
-        firstSymbolId &&
-        firstSymbolId ===
-          assetsWithIds[symbols.symbols[1]._texture.baseTexture.imageUrl] &&
-        firstSymbolId === assetsWithIds[symbols.symbols[2]._texture.baseTexture.imageUrl]
-      ) {
-        winningReels.push(i);
+      for (let reelIndex = 1; reelIndex < reels.length; reelIndex++) {
+        const symbolId =
+          reels[reelIndex].symbols[rowIndex].texture.baseTexture._id;
+        if (symbolId !== firstSymbolId) {
+          isWinningRow = false;
+          break;
+        }
+      }
+
+      if (isWinningRow) {
+        winningRows.push(rowIndex);
       }
     }
-    return winningReels;
+
+    return winningRows;
   }
 
   showWinningText(winngReelIndexes: number[], reelWidth: number) {
